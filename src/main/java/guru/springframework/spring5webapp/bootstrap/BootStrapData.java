@@ -1,11 +1,11 @@
 package guru.springframework.spring5webapp.bootstrap;
 
-import guru.springframework.spring5webapp.domain.Author;
-import guru.springframework.spring5webapp.domain.Book;
-import guru.springframework.spring5webapp.domain.Publisher;
-import guru.springframework.spring5webapp.domain.repositories.AuthorRepository;
-import guru.springframework.spring5webapp.domain.repositories.BookRepository;
-import guru.springframework.spring5webapp.domain.repositories.PublisherRepository;
+import guru.springframework.spring5webapp.model.Author;
+import guru.springframework.spring5webapp.model.Book;
+import guru.springframework.spring5webapp.model.Publisher;
+import guru.springframework.spring5webapp.repositories.AuthorRepository;
+import guru.springframework.spring5webapp.repositories.BookRepository;
+import guru.springframework.spring5webapp.repositories.PublisherRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
@@ -42,12 +42,8 @@ public class BootStrapData implements CommandLineRunner {
         authorRepository.save(mickiewicz);
         bookRepository.save(pan);
 
-        System.out.println("This is started in Bootstrap");
-        System.out.println("Number of books " + bookRepository.count());
-
         Publisher publisher = new Publisher ("Sowa", "Klonowa", "Krakow", "lasser Poland", "32-233");
         publisherRepository.save(publisher);
-        System.out.println("Number of publishers " + publisherRepository.count());
 
         pan.setPublisher(publisher);
         krzyzacy.setPublisher(publisher);
@@ -56,7 +52,7 @@ public class BootStrapData implements CommandLineRunner {
         publisherRepository.save(publisher);
         bookRepository.save(pan);
         bookRepository.save(krzyzacy);
-        System.out.println("Publisher has " + publisher.getBooks().size() + " books");
+
 
 
 
